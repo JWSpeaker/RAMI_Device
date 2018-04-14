@@ -2,14 +2,9 @@
 
 """
 import requests
-import subprocess
-
-def Record(file_name):
-    res = subprocess.run('arecord -D "plughw:1,0" -f S16_LE -t wav -r 16000 -d 4 > ' + file_name, shell = True)
-
 
 def Speech2Text(file_name):
-
+    #wav file open
     f = open(file_name, 'rb')
     wav = f.read()
 
@@ -20,13 +15,11 @@ def Speech2Text(file_name):
     }
     res = requests.post(url + key, headers = headers, data = wav)
     result = res.text
-    text = result[result.find("\":\"")+3: result.find("\",\"")]
+    text = result[result.find("\":\"")+3: result.find("\"")]
     print(text)
     return text;
 
-
-
 #module test code
 if __name__ == "__main__":
-    print('main')
+    print('main in stt_request.py')
     #res = subprocess.run('arecord -D "plughw:1,0" -f S16_LE -t wav -r 16000 -d 4 > ouput.wav', shell = True)

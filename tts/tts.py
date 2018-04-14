@@ -12,9 +12,9 @@ url = "https://openapi.naver.com/v1/voice/tts.bin"
 
 def TTS(text):
     """
-    주석
+    NAVER API
+    @ref : https://developers.naver.com/docs/clova/api/CSS/API_Guide.md#RequestParameter
     """
-
     encText = urllib.parse.quote(str(text))
     data = "speaker=jinho&speed=0&text=" + encText;
 
@@ -26,20 +26,11 @@ def TTS(text):
     if(rescode==200):
         print('text : ', text)
         response_body = response.read()
-        with open('result_voice.mp3', 'wb') as f:
+        with open('./data/result_voice.mp3', 'wb') as f:
             f.write(response_body)
     else:
         print("Error Code:" + rescode)
 
-def PlayVoice():
-    print('PlayVoice Call')
-    pygame.init()
-    pygame.mixer.music.load('result_voice.mp3')
-    pygame.mixer.music.play()
-    #재생되는 동안 대기
-    time.sleep(5)
-
 #test code
 if __name__ == "__main__":
     TTS("안녕하세요. 오늘의 날씨는 영상 10도이며 미세먼지 농도는 나쁨입니다. 강수확률은 60%이고 눈이 예상됩니다. 이상입니다.")
-    PlayVoice()
