@@ -4,6 +4,7 @@
 import requests
 
 def Speech2Text(file_name):
+    print("")
     #wav file open
     f = open(file_name, 'rb')
     wav = f.read()
@@ -15,7 +16,7 @@ def Speech2Text(file_name):
     }
     res = requests.post(url + key, headers = headers, data = wav)
     result = res.text
-    text = result[result.find("\":\"")+3: result.find("\"")]
+    text = result[result.find("\":\"")+3: result.find("\",")]
     print(text)
     return text;
 
