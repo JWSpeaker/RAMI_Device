@@ -16,7 +16,7 @@ def TTS(text):
     """
 
     encText = urllib.parse.quote(str(text))
-    data = "speaker=mijin&speed=0&text=" + encText;
+    data = "speaker=jinho&speed=0&text=" + encText;
 
     request = urllib.request.Request(url)
     request.add_header("X-Naver-Client-Id",client_id)
@@ -37,11 +37,9 @@ def PlayVoice():
     pygame.mixer.music.load('result_voice.mp3')
     pygame.mixer.music.play()
     #재생되는 동안 대기
-    time.sleep(10)
+    time.sleep(5)
 
-def main():
+#test code
+if __name__ == "__main__":
     TTS("안녕하세요. 오늘의 날씨는 영상 10도이며 미세먼지 농도는 나쁨입니다. 강수확률은 60%이고 눈이 예상됩니다. 이상입니다.")
     PlayVoice()
-
-if __name__ == "__main__":
-    main()
