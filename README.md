@@ -26,4 +26,9 @@ jack server is not running or cannot be started
 
 #TTS
 오디오 출력을 위한 pygame 설치
+
+unable to run sdl-config . please make sure a development version of sdl is installed 오류
+```
+$ sudo apt install apt-file
+$ sudo apt-file update
 ```
