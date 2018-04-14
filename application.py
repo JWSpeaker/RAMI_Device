@@ -6,4 +6,4 @@ if __name__ == "__main__":
     file_name = "./data/output.wav"
     RecordAudio(file_name)
     TTS(Speech2Text(file_name))
-    PlayAudio('./data/result_voice.mp3')
+    PlayAudio()
