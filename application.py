@@ -1,19 +1,21 @@
 from tts.tts import TTS
 from stt.stt_request import Speech2Text
 from audio.audio import RecordAudio
-from BayesianFilter.module import Predict
+from BayesianFilter.bayesian import BayesianFilter
 from Command.action import Action
 
 file_name = "./data/output.wav"
 
 def main():
+    bf = BayesianFilter("Predict")
+
     while True:
-        RecordAudio(file_name)
-        text = Speech2Text(file_name)
-        print('text : ' + text)
-        #text = input('input >>')
+        #RecordAudio(file_name)
+        #text = Speech2Text(file_name)
+        text = input('input >>')
         if text :
-            command = Predict(text)
+            print('text : ' + text)
+            command = bf.Predict(text)
             print('command : ' + command)
             result = Action(command)
             print('result : ' + result)
