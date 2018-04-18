@@ -3,6 +3,10 @@
 """
 import requests
 
+def RecordAudio(file_name):
+    subprocess.run('arecord -D "plughw:1,0" -f S16_LE -t wav -r 16000 -d 4 > ' + file_name, shell = True)
+
+
 def Speech2Text(file_name):
     #wav file open
     f = open(file_name, 'rb')

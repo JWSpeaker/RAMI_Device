@@ -14,9 +14,9 @@ def main():
             print('command is none')
 
 
-
-
 if __name__ == "__main__":
-    file_name = "./data/output.wav"
-    RecordAudio(file_name)
-    TTS(Speech2Text(file_name))
+    main()
+
+    #file_name = "./data/output.wav"
+    #RecordAudio(file_name)
+    #TTS(Speech2Text(file_name))

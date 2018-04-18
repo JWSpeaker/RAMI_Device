@@ -1,11 +1,7 @@
 import os
 import sys
 import urllib.request
-#import pygame
-import time
-
-from ..audio.audio import PlayAudio
-
+import pygame
 
 #naver developer API
 client_id = "H7tbSw0Zq64yn8mgcMv6"
@@ -36,6 +32,17 @@ def TTS(text):
     else:
         print("Error Code:" + rescode)
 
+#mp3 재생하기위해 pygame 썼음
+def PlayAudio(file_name):
+    pygame.init()
+    pygame.mixer.music.load(file_name)
+    pygame.mixer.music.play()
+    #재생되는 동안 대기
+    while pygame.mixer.music.get_busy():
+        pygame.time.Clock().tick(10)
+
+
 #test code
 if __name__ == "__main__":
     TTS("안녕하세요. 오늘의 날씨는 영상 10도이며 미세먼지 농도는 나쁨입니다. 강수확률은 60%이고 눈이 예상됩니다. 이상입니다.")
+    PlayAudio('./data/result_voice.mp3')
