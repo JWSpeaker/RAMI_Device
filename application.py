@@ -10,9 +10,9 @@ def main():
     bf = BayesianFilter("Predict")
 
     while True:
-        #RecordAudio(file_name)
-        #text = Speech2Text(file_name)
-        text = input('input >>')
+        RecordAudio(file_name)
+        text = Speech2Text(file_name)
+        #text = input('input >>')
         if text :
             print('text : ' + text)
             command = bf.Predict(text)
