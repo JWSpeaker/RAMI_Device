@@ -1,6 +1,7 @@
 from tts.tts import TTS
 from stt.stt_request import Speech2Text
 from audio.audio import RecordAudio
+from BayesianFilter.module import Predict
 
 file_name = "./data/output.wav"
 
@@ -10,6 +11,7 @@ def main():
         command = Speech2Text(file_name)
         if command :
             print('command : ' + command)
+            Predict(command)
         else:
             print('command is none')
 
