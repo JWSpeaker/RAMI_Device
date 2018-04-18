@@ -24,7 +24,7 @@ def TTS(text):
     response = urllib.request.urlopen(request, data=data.encode('utf-8'))
     rescode = response.getcode()
     if(rescode==200):
-        print('text : ', text)
+        #print('text : ', text)
         response_body = response.read()
         with open('./data/result_voice.mp3', 'wb') as f:
             f.write(response_body)
