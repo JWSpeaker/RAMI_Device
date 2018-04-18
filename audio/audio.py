@@ -8,9 +8,9 @@ def RecordAudio(file_name):
 
 
 #mp3 재생하기위해 pygame 썼음
-def PlayAudio():
+def PlayAudio(file_name):
     pygame.init()
-    pygame.mixer.music.load('./data/result_voice.mp3')
+    pygame.mixer.music.load(file_name)
     pygame.mixer.music.play()
     #재생되는 동안 대기
     while pygame.mixer.music.get_busy():

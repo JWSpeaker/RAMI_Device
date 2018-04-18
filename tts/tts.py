@@ -1,8 +1,11 @@
 import os
 import sys
 import urllib.request
-import pygame
+#import pygame
 import time
+
+from ..audio.audio import PlayAudio
+
 
 #naver developer API
 client_id = "H7tbSw0Zq64yn8mgcMv6"
@@ -28,6 +31,8 @@ def TTS(text):
         response_body = response.read()
         with open('./data/result_voice.mp3', 'wb') as f:
             f.write(response_body)
+
+        PlayAudio('./data/result_voice.mp3')
     else:
         print("Error Code:" + rescode)
 
