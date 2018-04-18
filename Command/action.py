@@ -1,11 +1,13 @@
 from .date import GetDatetime
-
-def case1(x):
+from .weather import GetWeatherInfo
+def case(x):
     return {
-        '오늘날씨' : 'test',
-        '현재시간' : GetDatetime()
-    }.get(x, 'not defined case')
+        '오늘날씨' : GetWeatherInfo(),
+        '현재시간' : GetDatetime(),
+        '종료' : 'exit'
+
+    }.get(x, 'not defined command')
 
 
 def Action(command):
-    return case1(command)
+    return case(command)

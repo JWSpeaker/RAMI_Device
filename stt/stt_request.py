@@ -24,8 +24,6 @@ def Speech2Text(file_name):
     if result.find("transcript"):
         return False
     text = result[result.find("\":\"")+3: result.find("\",")]
-    print("> text")
-    print(text)
     return text;
 
 #module test code
