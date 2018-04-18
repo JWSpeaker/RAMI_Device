@@ -21,7 +21,7 @@ def Speech2Text(file_name):
 
     res = requests.post(url + key, headers = headers, data = wav)
     result = res.text
-    if result.find("transcript"):
+    if result.find("transcript") == -1:
         return False
     text = result[result.find("\":\"")+3: result.find("\",")]
     return text;
