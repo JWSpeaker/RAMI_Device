@@ -20,6 +20,7 @@ def main():
             result = Action(command)
             print('result : ' + result)
             if result == 'exit':
+                continue;
                 exit_coment = '종료하겠습니다. 감사합니다.'
                 print(exit_coment)
                 TTS(exit_coment)
